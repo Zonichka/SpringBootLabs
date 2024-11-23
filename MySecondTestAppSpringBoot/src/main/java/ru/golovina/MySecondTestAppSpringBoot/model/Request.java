@@ -22,7 +22,8 @@ public class Request {
     @Size(min=1, max = 32, message = "operationUid должен содержать не более 32 символов")
     private String operationUid;
 
-    private String systemName;
+    @NotNull
+    private Systems systemName;
 
     @NotBlank(message = "systemTime is mandatory")
     private String systemTime;
@@ -35,5 +36,20 @@ public class Request {
 
     private int templateId;
     private int productCode;
-    private int snsCode;
+    private int smsCode;
+
+    @Override
+    public String toString() {
+        return "{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemName='" + systemName + '\'' +
+                ", systemTime='" + systemTime + '\'' +
+                ", source='" + source + '\'' +
+                ", communicationId=" + communicationId +
+                ", templateId=" + templateId +
+                ", productCode=" + productCode +
+                ", smsCode=" + smsCode +
+                '}';
+    }
 }
